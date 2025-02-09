@@ -1,9 +1,26 @@
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import QuotePage from './pages/QuotePage'
+import AuthorPage from './pages/AuthorPage'
+import NavbarDark from './components/NavBar'
+import Footer from './components/Footer'
+
 function App() {
   return (
-    <div className="container mt-5">
-      <button className="btn btn-primary">Hello World</button>
-    </div>
-  );
+    <Router>
+      <div className="App">
+      <NavbarDark />
+      <main className="flex-shrink-0">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/quotes" element={<QuotePage />} />
+          <Route path="/authors" element={<AuthorPage />} />
+        </Routes>
+        </main>
+        <Footer/>
+      </div>
+    </Router>
+  )
 }
 
-export default App;
+export default App
